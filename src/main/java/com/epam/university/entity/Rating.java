@@ -1,5 +1,7 @@
 package com.epam.university.entity;
 
+import com.epam.university.enums.Ratings;
+
 import java.util.Date;
 
 public class Rating {
@@ -7,7 +9,15 @@ public class Rating {
     private int studentId;
     private int subjectId;
     private Date date;
-    private Rating rating;
+    private Ratings rating;
+
+    public Rating(int id, int studentId, int subjectId, Date date, Ratings rating) {
+        this.id = id;
+        this.studentId = studentId;
+        this.subjectId = subjectId;
+        this.date = date;
+        this.rating = rating;
+    }
 
     public Rating() {
     }
@@ -44,11 +54,11 @@ public class Rating {
         this.date = date;
     }
 
-    public Rating getRating() {
+    public Ratings getRating() {
         return rating;
     }
 
-    public void setRating(Rating rating) {
+    public void setRating(Ratings rating) {
         this.rating = rating;
     }
 }

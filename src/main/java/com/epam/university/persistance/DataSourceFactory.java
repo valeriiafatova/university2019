@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -53,5 +54,9 @@ public class DataSourceFactory {
             LOG.error("Error while connection creation", e);
         }
         return connection;
+    }
+    
+    public static PreparedStatement getPreparedStatement(String query) throws SQLException {
+        return getConnection().prepareStatement(query);
     }
 }

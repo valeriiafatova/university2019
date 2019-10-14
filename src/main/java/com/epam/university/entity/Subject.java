@@ -7,6 +7,11 @@ public class Subject {
     public Subject() {
     }
 
+    public Subject(int id, String title) {
+        this.id = id;
+        this.title = title;
+    }
+
     public int getId() {
         return id;
     }

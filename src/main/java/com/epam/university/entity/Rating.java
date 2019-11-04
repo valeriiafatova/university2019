@@ -2,16 +2,16 @@ package com.epam.university.entity;
 
 import com.epam.university.enums.Ratings;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Rating {
     private int id;
     private int studentId;
     private int subjectId;
-    private Date date;
+    private LocalDate date;
     private Ratings rating;
 
-    public Rating(int id, int studentId, int subjectId, Date date, Ratings rating) {
+    public Rating(int id, int studentId, int subjectId, LocalDate date, Ratings rating) {
         this.id = id;
         this.studentId = studentId;
         this.subjectId = subjectId;
@@ -46,11 +46,11 @@ public class Rating {
         this.subjectId = subjectId;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -60,5 +60,11 @@ public class Rating {
 
     public void setRating(Ratings rating) {
         this.rating = rating;
+    }
+
+    @Override
+    public String toString() {
+        return "Rating{" + "id=" + id + ", studentId=" + studentId + ", subjectId=" + subjectId + ", date=" + date +
+                ", rating=" + rating + '}' + "\n";
     }
 }

@@ -9,11 +9,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractDao<T> implements EntityDao<T>{
+public abstract class AbstractDao<T> implements EntityDao<T> {
     private static final Logger LOG = Logger.getLogger(AbstractDao.class);
 
     protected static final String COLUMN_ID = "id";
-    
+
     public List<T> getAll(String query, EntityMapper<T> mapper) {
         List<T> result = new ArrayList<>();
 
@@ -31,6 +31,20 @@ public abstract class AbstractDao<T> implements EntityDao<T>{
         }
 
         return result;
+    }
+    
+    public boolean createUpdate(String query, StatementMapper<T> statementMapper){
+        try(PreparedStatement preparedStatement = DataSourceFactory.getPreparedStatement(query);) {
+            statementMapper.map(preparedStatement);
+
+            int result = preparedStatement.executeUpdate();
+
+            return result == 1;
+        } catch (SQLException e) {
+            LOG.error("Could not create entity!!", e);
+        }
+
+        return false;
     }
 }
 

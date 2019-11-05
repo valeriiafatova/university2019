@@ -43,7 +43,7 @@ public class DispatcherServlet extends HttpServlet {
     private String getPath(HttpServletRequest req) {
         String requestUri = req.getRequestURI();
         int lastPath = requestUri.lastIndexOf('/');
-        String path = requestUri.substring(lastPath + 1);
+        String path = requestUri.substring(lastPath);
         LOG.info("Path: " + path );
         return path;
     }

@@ -1,6 +1,7 @@
 package com.epam.university.dao;
 
 import com.epam.university.entity.Subject;
+import com.epam.university.entity.User;
 import org.apache.log4j.Logger;
 
 import java.util.List;
@@ -20,10 +21,36 @@ public class SubjectDao extends AbstractDao<Subject> {
     
     private static final String DELETE_SUBJECT = "DELETE FROM subject "
             + "WHERE " + COLUMN_ID + " = ?";
+    public static final String SELECT_FULL =
+            "SELECT * FROM `subject` join `subject_lecturer` on subject_lecturer.subjectId = subject.id ";
+
+    @Override
+    public Subject getById(int id, boolean full) {
+        return full ?
+                getById(SELECT_FULL + "WHERE subject.id = ?",
+                        ps -> ps.setInt(1, id), getFullMapper()) :
+                getById("SELECT * FROM `subject` WHERE id = ?", ps -> ps.setInt(1, id), getSubjectEntityMapper());
+    }
+
+    private EntityMapper<Subject> getFullMapper() {
+        return resultSet -> new Subject(resultSet.getInt(COLUMN_ID), resultSet.getString(COLUMN_TITLE),
+                resultSet.getInt("lecturerId"));
+    }
+
+    @Override
+    public List<Subject> getAll(boolean full) {
+        return full 
+                ? getAll(SELECT_FULL, getFullMapper()) 
+                :  getAll(SELECT_ALL, getSubjectEntityMapper());
+    }
 
     @Override
     public List<Subject> getAll() {
-        return getAll(SELECT_ALL, resultSet -> new Subject(resultSet.getInt(COLUMN_ID),resultSet.getString(COLUMN_TITLE)));
+        return getAll(SELECT_ALL, getSubjectEntityMapper());
+    }
+
+    private EntityMapper<Subject> getSubjectEntityMapper() {
+        return resultSet -> new Subject(resultSet.getInt(COLUMN_ID),resultSet.getString(COLUMN_TITLE));
     }
 
     @Override

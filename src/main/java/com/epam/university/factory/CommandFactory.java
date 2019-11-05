@@ -1,6 +1,7 @@
 package com.epam.university.factory;
 
 import com.epam.university.web.command.Command;
+import com.epam.university.web.command.HomeCommand;
 import com.epam.university.web.command.NotFoundCommand;
 import com.epam.university.web.command.UserCommand;
 
@@ -13,8 +14,9 @@ public class CommandFactory {
     private static Command defaultCommand = new NotFoundCommand();
 
     static {
-        getCommandMap.put("user", new UserCommand());
-        getCommandMap.put("404", defaultCommand);
+        getCommandMap.put("/", new HomeCommand());
+        getCommandMap.put("/user", new UserCommand());
+        getCommandMap.put("/404", defaultCommand);
     }
 
     private CommandFactory() {

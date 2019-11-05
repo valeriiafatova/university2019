@@ -18,6 +18,9 @@
     <mysql>8.0.17</mysql>
     <servlet.api>3.1.0</servlet.api>
     <log4j>1.2.17</log4j>
+    <junit>4.12</junit>
+    <mockito>1.10.19</mockito>
+    <assertJ>3.14.0</assertJ>
   </properties>
 
   <dependencies>
@@ -36,7 +39,25 @@
       <artifactId>javax.servlet-api</artifactId>
       <version>${servlet.api}</version>
       <scope>provided</scope>
-    </dependency>  
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-all</artifactId>
+      <version>${mockito}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${assertJ}</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>

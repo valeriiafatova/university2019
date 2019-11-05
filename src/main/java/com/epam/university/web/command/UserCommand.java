@@ -8,7 +8,10 @@ import com.epam.university.web.data.Page;
 
 import javax.servlet.http.HttpServletRequest;
 
+import static com.epam.university.constant.PageUrlConstants.USER_PAGE;
+
 public class UserCommand implements Command{
+    private static final String COUNT_ATTRIBUTE = "count";
     private EntityDao<User> userDao;
 
     public UserCommand() {
@@ -18,8 +21,8 @@ public class UserCommand implements Command{
     @Override
     public Page perform(HttpServletRequest request) {
         long userCount = userDao.getAll().stream().count();
-        request.setAttribute("count", userCount);
-        return new Page("/user.jsp");
+        request.setAttribute(COUNT_ATTRIBUTE, userCount);
+        return new Page(USER_PAGE);
     }
 
     public void setUserDao(EntityDao userDao) {

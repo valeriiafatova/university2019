@@ -2,20 +2,20 @@ package com.epam.university.entity;
 
 import java.util.List;
 
-public class Major {
+public class Outline {
 
     private int id;
     private String title;
-    private List<Subject> subjects;
+    private int courseId;
 
-    public Major() {
-    }
-
-    public Major(int id, String title) {
-        this.id = id;
-        this.title = title;
+    public Outline() {
     }
     
+    public Outline(int id, String title, int courseId) {
+        this.id = id;
+        this.title = title;
+        this.courseId = courseId;
+    }
 
     public int getId() {
         return id;
@@ -33,11 +33,11 @@ public class Major {
         this.title = title;
     }
 
-    public List<Subject> getSubjects() {
-        return subjects;
+    public int getCourseId() {
+        return courseId;
     }
 
-    public void setSubjects(List<Subject> subjects) {
-        this.subjects = subjects;
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 }

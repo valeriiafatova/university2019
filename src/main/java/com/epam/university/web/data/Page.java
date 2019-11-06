@@ -13,7 +13,7 @@ public class Page {
         this.url = url;
     }
 
-    public Page() {
+    private Page() {
     }
 
     public String getUrl() {

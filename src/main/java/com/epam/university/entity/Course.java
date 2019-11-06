@@ -1,21 +1,24 @@
 package com.epam.university.entity;
 
-public class Subject {
+public class Course {
     private int id;
     private String title;
+    private String description;
     private int lecturerId;
 
-    public Subject() {
+    public Course() {
     }
 
-    public Subject(int id, String title) {
+    public Course(int id, String title, String description) {
         this.id = id;
         this.title = title;
+        this.description = description;
     }
 
-    public Subject(int id, String title, int lecturerId) {
+    public Course(int id, String title, String description, int lecturerId) {
         this.id = id;
         this.title = title;
+        this.description = description;
         this.lecturerId = lecturerId;
     }
 
@@ -41,6 +44,14 @@ public class Subject {
 
     public void setLecturerId(int lecturerId) {
         this.lecturerId = lecturerId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override

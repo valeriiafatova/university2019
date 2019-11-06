@@ -7,15 +7,19 @@ public class User {
     private String login;
     private String password;
     private Role role;
+    private String firstName;
+    private String lastName;
 
     public User() {
     }
 
-    public User(int id, String login, String password, Role role) {
+    public User(int id, String login, String password, Role role, String firstName, String lastName) {
         this.id = id;
         this.login = login;
         this.password = password;
         this.role = role;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public int getId() {
@@ -48,6 +52,22 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     @Override

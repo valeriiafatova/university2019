@@ -1,61 +1,63 @@
 drop schema if exists university;
 create schema university character set utf8 collate utf8_general_ci;
 use university;
-create table role (
-id int auto_increment,
-role varchar(255),
-primary key (id));
 
-create table user (
-id Int auto_increment,
-login varchar(255) unique,
-password varchar(255) not null,
-roleId int,
-primary key (id), 
-constraint c_role 
-foreign key (roleId) references role(id));
+create table user
+(
+    id         Int auto_increment,
+    login      varchar(255) unique,
+    password   varchar(255) not null,
+    `role`     enum ('ADMIN','STUDENT','LECTURER'),
+    first_name varchar(255) not null,
+    last_name  varchar(255) not null,
+    primary key (id)
+);
 
-create table specialty (
-id int auto_increment,
-title varchar(255) not null,
-primary key (id));
+create table course
+(
+    id          int auto_increment,
+    title       varchar(255) not null,
+    description varchar(255) not null,
+    primary key (id)
+);
 
-create table `subject` (
-id int auto_increment,
-title varchar(255) not null,
-primary key (id));
+create table outline
+(
+    id        int auto_increment,
+    title     varchar(255) not null,
+    course_id int,
+    primary key (id),
+    foreign key (course_id) references course (id)
+);
 
-create table subject_lecture(
-id int auto_increment,
-lectureId int,
-subjectId int,
-primary key(id), 
-foreign key (lectureId) references user(id),
-foreign key (subjectId) references subject(id),
-unique key `subjectLecturex` (lectureId, subjectId));
+create table course_lecturer
+(
+    id          int auto_increment,
+    lecturer_id int,
+    course_id   int,
+    primary key (id),
+    foreign key (lecturer_id) references user (id),
+    foreign key (course_id) references course (id),
+    unique key `courseLecturerx` (lecturer_id, course_id)
+);
 
-create table subject_specialty(
-id int auto_increment,
-specialtyId int,
-subjectId int,
-primary key(id), 
-foreign key (specialtyId) references specialty(id),
-foreign key (subjectId) references subject(id),
-unique key `subjectSpecialtyx` (specialtyId, subjectId));
+create table rating
+(
+    id         int auto_increment,
+    student_id int,
+    course_id  int,
+    `date`     date,
+    rating     enum ('A', 'B', 'C', 'D', 'E'),
+    primary key (id),
+    foreign key (student_id) references user (id),
+    foreign key (course_id) references course (id)
+);
 
-create table rating(
-id int auto_increment,
-studentId int,
-subjectId int,
-`date` date, 
-rating enum("A", "B", "C", "D", "E"),
-primary key(id),
-foreign key (studentId) references user(id),
-foreign key (subjectId) references subject(id));
-
-create table notification(
-id int auto_increment,
-studentId int, 
-`date` date,
-primary key (id),
-foreign key (studentId) references user(id));
+create table notification
+(
+    id         int auto_increment,
+    student_id int,
+    `date`     date,
+    primary key (id),
+    foreign key (student_id) references user (id)
+);

@@ -14,6 +14,33 @@ public abstract class AbstractDao<T> implements EntityDao<T> {
 
     protected static final String COLUMN_ID = "id";
 
+    @Override
+    public T getById(int id, boolean full) {
+        return null;
+    }
+
+    @Override
+    public List<T> getAll(boolean full) {
+        return null;
+    }
+
+    public T getById(String query, StatementMapper<T> statementMapper, EntityMapper<T> mapper){
+       T result = null;
+
+        try (PreparedStatement preparedStatement = DataSourceFactory.getPreparedStatement(query);) {
+            statementMapper.map(preparedStatement);
+            try(ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    result = mapper.map(resultSet);
+                }
+            }
+        } catch (SQLException e) {
+            LOG.error("Exception while getting all entities", e);
+        }
+
+        return result;
+    }
+
     public List<T> getAll(String query, EntityMapper<T> mapper) {
         List<T> result = new ArrayList<>();
 
@@ -27,7 +54,7 @@ public abstract class AbstractDao<T> implements EntityDao<T> {
             }
 
         } catch (SQLException e) {
-            LOG.error("Exception while getting all entities");
+            LOG.error("Exception while getting all entities", e);
         }
 
         return result;

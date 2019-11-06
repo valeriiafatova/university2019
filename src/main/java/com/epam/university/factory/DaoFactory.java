@@ -1,9 +1,9 @@
 package com.epam.university.factory;
 
 import com.epam.university.dao.EntityDao;
-import com.epam.university.dao.MajorDao;
+import com.epam.university.dao.OutlineDao;
 import com.epam.university.dao.RatingDao;
-import com.epam.university.dao.SubjectDao;
+import com.epam.university.dao.CourseDao;
 import com.epam.university.dao.UserDao;
 import com.epam.university.enums.DaoType;
 
@@ -16,8 +16,8 @@ public class DaoFactory {
     
     static {
         daoMap.put(DaoType.USER, new UserDao());
-        daoMap.put(DaoType.SUBJECT, new SubjectDao());
-        daoMap.put(DaoType.MAJOR, new MajorDao());
+        daoMap.put(DaoType.SUBJECT, new CourseDao());
+        daoMap.put(DaoType.MAJOR, new OutlineDao());
         daoMap.put(DaoType.RATING, new RatingDao());
     }
     

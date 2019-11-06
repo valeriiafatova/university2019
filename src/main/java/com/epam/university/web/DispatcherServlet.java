@@ -15,7 +15,7 @@ import java.io.IOException;
 @WebServlet(value = "/app/*")
 public class DispatcherServlet extends HttpServlet {
     private static final Logger LOG = Logger.getLogger(DispatcherServlet.class);
-    
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         processRequest(req, resp);
@@ -25,17 +25,19 @@ public class DispatcherServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         processRequest(req, resp);
     }
+    
+    
 
     private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String path = getPath(req);
 
         Command command = CommandFactory.getCommand(path, req.getMethod());
-        
+
         Page page = command.perform(req);
 
-        if(page.isRedirect()){
+        if (page.isRedirect()) {
             resp.sendRedirect(page.getUrl());
-        }else {
+        } else {
             req.getRequestDispatcher(page.getUrl()).forward(req, resp);
         }
     }
@@ -44,7 +46,7 @@ public class DispatcherServlet extends HttpServlet {
         String requestUri = req.getRequestURI();
         int lastPath = requestUri.lastIndexOf('/');
         String path = requestUri.substring(lastPath);
-        LOG.info("Path: " + path );
+        LOG.info("Path: " + path);
         return path;
     }
 }

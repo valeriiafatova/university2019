@@ -394,7 +394,7 @@ button:focus {
       display: none; } }
   .header-top .header-top-right {
     text-align: right; }
-    .header-top .header-top-right a {
+    .header-top .header-top-right a option{
       padding: 0 20px;
       height: 40px;
       display: inline-block;
@@ -2385,7 +2385,9 @@ h6 {
   outline: none; }
 
 .input-group-icon {
-  position: relative; }
+  position: relative; 
+  width: 30%;
+}
 
 .input-group-icon .icon {
   position: absolute;
@@ -3389,6 +3391,9 @@ h6 {
           text-align: left;
           margin-top: 20px; } }
 
+.language{
+  width: 30%;
+}
 /*---------------------------------------------------- */
 
 /*# sourceMappingURL=style.css.map */

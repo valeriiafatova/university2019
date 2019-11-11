@@ -36,7 +36,7 @@ public class DispatcherServlet extends HttpServlet {
         Page page = command.perform(req);
 
         if (page.isRedirect()) {
-            resp.sendRedirect(page.getUrl());
+            resp.sendRedirect(req.getContextPath() + page.getUrl());
         } else {
             req.getRequestDispatcher(page.getUrl()).forward(req, resp);
         }

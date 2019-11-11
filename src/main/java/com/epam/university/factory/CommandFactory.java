@@ -8,6 +8,7 @@ import com.epam.university.web.command.ContactCommand;
 import com.epam.university.web.command.CourseCommand;
 import com.epam.university.web.command.CourseDetailsCommand;
 import com.epam.university.web.command.HomeCommand;
+import com.epam.university.web.command.LanguageCommand;
 import com.epam.university.web.command.NotFoundCommand;
 import com.epam.university.web.command.SearchCommand;
 
@@ -29,6 +30,7 @@ public class CommandFactory {
         getCommandMap.put("/contact", new ContactCommand());
         getCommandMap.put("/search", new SearchCommand());
         getCommandMap.put("/about-us", new AboutUsCommand());
+        getCommandMap.put("/language", new LanguageCommand());
         
         postCommandMap.put("/", new HomeCommand());
     }

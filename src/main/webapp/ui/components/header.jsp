@@ -30,7 +30,11 @@
 							</span>
                     </a>
                 </div>
+                
                 <div class="col-lg-6 col-sm-6 col-8 header-top-right">
+                    <a href="app/language?locale=en" class="text-uppercase">en</a>
+                    <a href="app/language?locale=de" class="text-uppercase">de</a>
+                    <a href="app/language?locale=ru" class="text-uppercase">ru</a>
                     <a href="#" class="text-uppercase">Login</a>
                 </div>
             </div>

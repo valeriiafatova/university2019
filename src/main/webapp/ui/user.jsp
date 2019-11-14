@@ -1,1 +1,0 @@
-<h2>Count of users: ${count}</h2>

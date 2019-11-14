@@ -19,7 +19,7 @@
                         <h2>Not found!</h2>
                         
                         <div class="page_link">
-                            <a href="app/">Home</a>
+                            <a href="">Home</a>
                         </div>
                     </div>
                 </div>

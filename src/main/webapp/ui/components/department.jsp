@@ -81,7 +81,7 @@
                         time to buy that first telescope. It’s exciting to think about setting up your own viewing station.</p>
                     <p>It’s exciting to think about setting up your own viewing station. In the life of any aspiring astronomer that
                         it is time to buy that first telescope exciting is time to buy that first.</p>
-                    <a href="app/course" class="primary-btn text-uppercase">Explore Courses</a>
+                    <a href="course" class="primary-btn text-uppercase">Explore Courses</a>
                 </div>
             </div>
         </div>

@@ -25,8 +25,8 @@
                                 the
                                 building and launch of the space telescope known as the Hubble.</p>
                             <div class="page_link">
-                                <a href="app/">Home</a>
-                                <a href="app/contact">Contact</a>
+                                <a href="">Home</a>
+                                <a href="contact">Contact</a>
                             </div>
                         </div>
                     </div>

@@ -26,4 +26,32 @@
         <filter-name>localizationFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>com.epam.university.web.filter.EncodingFilter</filter-class>
+        <init-param>
+            <param-name>requestEncoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>staticResourceFilter</filter-name>
+        <filter-class>com.epam.university.web.filter.StaticResourceFilter</filter-class>
+        <init-param>
+            <param-name>app_path</param-name>
+            <param-value>app</param-value>
+        </init-param>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>staticResourceFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

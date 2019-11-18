@@ -186,6 +186,7 @@ button:focus {
   font-weight: 600;
   line-height: 50px;
   border-radius: 0px;
+  border: 0px;
   outline: none !important;
   box-shadow: 0px 20px 50px rgba(0, 175, 224, 0.3);
   text-align: center;
@@ -198,6 +199,9 @@ button:focus {
     background-position: right center;
     color: #fff;
     box-shadow: none; }
+  .primary-btn b{
+    border: 0;
+  }
 
 /* End Buttons Area css
 ============================================================================================ */
@@ -394,7 +398,7 @@ button:focus {
       display: none; } }
   .header-top .header-top-right {
     text-align: right; }
-    .header-top .header-top-right a option{
+    .header-top .header-top-right a option {
       padding: 0 20px;
       height: 40px;
       display: inline-block;

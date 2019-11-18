@@ -24,7 +24,7 @@ public class EncodingFilterTest {
     private static final String ENCODING_UTF_8 = "UTF-8";
     private static final String DEFAULT_CONTENT_TYPE = "text/html; charset=UTF-8";
     private static final String REQUEST_ENCODING = "requestEncoding";
-    public static final String ENCODING_FROM_CONFIG = "encoding";
+    private static final String ENCODING_FROM_CONFIG = "encoding";
 
     @InjectMocks
     private EncodingFilter instance;

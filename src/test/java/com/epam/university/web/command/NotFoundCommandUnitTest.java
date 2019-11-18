@@ -25,6 +25,6 @@ public class NotFoundCommandUnitTest {
         Page result = instance.perform(request);
         
         assertThat(result.getUrl()).isEqualTo(NOT_FOUND_PAGE);
-        assertThat(result.isRedirect()).isTrue();
+        assertThat(result.isRedirect()).isFalse();
     }
 }

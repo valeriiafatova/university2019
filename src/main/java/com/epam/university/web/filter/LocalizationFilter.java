@@ -45,6 +45,7 @@ public class LocalizationFilter implements Filter {
         String locale = (String) session.getAttribute(LOCALE);
         if (locale == null) {
             LOG.info("Set locale to session");
+            LOG.info("Set locale to session");
             session.setAttribute(LOCALE, defaultLocale);
         }
     }

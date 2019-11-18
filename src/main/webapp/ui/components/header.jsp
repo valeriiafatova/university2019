@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Valeriia_Fatova
@@ -35,7 +36,14 @@
                     <a href="language?locale=en" class="text-uppercase">en</a>
                     <a href="language?locale=de" class="text-uppercase">de</a>
                     <a href="language?locale=ru" class="text-uppercase">ru</a>
-                    <a href="#" class="text-uppercase">Login</a>
+                    <c:choose>
+                        <c:when test="${not empty user}">
+                        <a href="" class="text-uppercase my-account">My account</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="" class="text-uppercase login">Login</a>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
         </div>
@@ -84,7 +92,7 @@
                                 <li class="nav-item"><a class="nav-link" href="single-blog">Blog Details</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="app/contact">Contact</a></li>
                         <li class="nav-item">
                             <a href="" class="nav-link search" id="search">
                                 <i class="lnr lnr-magnifier"></i>

@@ -4,6 +4,8 @@ import com.epam.university.entity.User;
 import com.epam.university.factory.ServiceFactory;
 import com.epam.university.service.UserService;
 import com.epam.university.web.data.Page;
+import com.epam.university.web.data.AjaxResponse;
+import com.google.gson.Gson;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +16,8 @@ public class LoginCommand extends MultipleMethodCommand {
     private static final Logger LOG = Logger.getLogger(LoginCommand.class);
     
     private UserService userService;
-
+    private static Gson gson = new Gson();
+    
     public LoginCommand() {
         this.userService = ServiceFactory.getUserService();
     }
@@ -33,16 +36,22 @@ public class LoginCommand extends MultipleMethodCommand {
         
         Optional<User> optionalUser = userService.validateUser(login, password);
         
+        AjaxResponse ajaxResponse = new AjaxResponse();
         if (optionalUser.isPresent()) {
             LOG.info("Login success");
             
             User user = optionalUser.get();
             session.setAttribute("user", user);
-            return new Page("/", true);
+            ajaxResponse.setUrl("");
+            ajaxResponse.setSuccess(true);
+            return getPage(ajaxResponse);
         }
 
-        session.setAttribute("error", "Error");
-        return new Page("/", true);
-        
+        ajaxResponse.setMessage("Invalid credential! Please, try again.");
+        return getPage(ajaxResponse);
+    }
+
+    private Page getPage(AjaxResponse ajaxResponse) {
+        return new Page(true, gson.toJson(ajaxResponse));
     }
 }

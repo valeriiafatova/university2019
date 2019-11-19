@@ -1,6 +1,6 @@
 package com.epam.university.dao;
 
-import com.epam.university.persistance.DataSourceFactory;
+import com.epam.university.persistance.DataSourceConnectionPool;
 import org.apache.log4j.Logger;
 
 import java.sql.PreparedStatement;
@@ -27,7 +27,7 @@ public abstract class AbstractDao<T> implements EntityDao<T> {
     public T getById(String query, StatementMapper<T> statementMapper, EntityMapper<T> mapper){
        T result = null;
 
-        try (PreparedStatement preparedStatement = DataSourceFactory.getPreparedStatement(query);) {
+        try (PreparedStatement preparedStatement = DataSourceConnectionPool.getPreparedStatement(query);) {
             statementMapper.map(preparedStatement);
             try(ResultSet resultSet = preparedStatement.executeQuery()) {
                 while (resultSet.next()) {
@@ -44,7 +44,7 @@ public abstract class AbstractDao<T> implements EntityDao<T> {
     public List<T> getAll(String query, EntityMapper<T> mapper) {
         List<T> result = new ArrayList<>();
 
-        try (PreparedStatement preparedStatement = DataSourceFactory.getPreparedStatement(query);
+        try (PreparedStatement preparedStatement = DataSourceConnectionPool.getPreparedStatement(query);
              ResultSet resultSet = preparedStatement.executeQuery()) {
 
             while (resultSet.next()) {
@@ -61,7 +61,7 @@ public abstract class AbstractDao<T> implements EntityDao<T> {
     }
     
     public boolean createUpdate(String query, StatementMapper<T> statementMapper){
-        try(PreparedStatement preparedStatement = DataSourceFactory.getPreparedStatement(query);) {
+        try(PreparedStatement preparedStatement = DataSourceConnectionPool.getPreparedStatement(query);) {
             statementMapper.map(preparedStatement);
 
             int result = preparedStatement.executeUpdate();

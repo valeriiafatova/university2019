@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<div id="login-modal" class="modal fade " role="dialog">
+<div id="login-modal" class="modal fade" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header text-center">
@@ -21,15 +21,16 @@
                     <div class="input-group-icon mt-10">
                         <div class="icon mt-10"><i class="fa fa-user"></i>
                         </div>
-                        <input type="text" name="login" class="single-input">
+                        <input type="text" name="login" id="login" class="single-input">
                         <label data-error="wrong" data-success="right" for="login">Your email</label>
                     </div>
 
                     <div class="input-group-icon mt-10">
                         <div class="icon mt-10"><i class="fa fa-lock"></i></div>
-                        <input type="password" name="password" class="single-input">
+                        <input type="password" name="password" id="password"  class="single-input">
                         <label data-error="wrong" data-success="right" for="password">Your password</label>
                     </div>
+                    <div class="login message text-danger"></div>
                 </div>
                 <div class="modal-footer d-flex">
                     <button class="primary-btn text-uppercase enroll">Login</button>

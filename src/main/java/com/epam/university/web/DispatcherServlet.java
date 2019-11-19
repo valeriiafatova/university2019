@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(value = "/app/*")
 public class DispatcherServlet extends HttpServlet {
@@ -37,6 +38,11 @@ public class DispatcherServlet extends HttpServlet {
 
         if (page.isRedirect()) {
             resp.sendRedirect(req.getContextPath() + page.getUrl());
+        } else if(page.isAjax()){
+            resp.setContentType("application/json");
+            PrintWriter out = resp.getWriter();
+            out.print(page.getAjaxContent());
+            out.flush();
         } else {
             req.getRequestDispatcher(resolvePath(page.getUrl())).forward(req, resp);
         }

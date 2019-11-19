@@ -66,7 +66,7 @@
                        required class="single-input">
             </div>
             <div class="mt-25">
-                <button type="submit" class="primary-btn text-uppercase enroll">Login</button>
+                <button type="submit" class="primary-btn text-uppercase enroll">Registration</button>
             </div>
         </form>
     </div>

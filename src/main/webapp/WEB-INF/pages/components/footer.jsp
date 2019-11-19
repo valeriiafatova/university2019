@@ -34,7 +34,7 @@
                 </div>
                 <div class="modal-footer d-flex">
                     <button class="primary-btn text-uppercase enroll">Login</button>
-                    <a href="register" class="primary-btn text-uppercase enroll">Register</a>
+                    <a href="registration" class="primary-btn text-uppercase enroll">Register</a>
                 </div>
             </form>
         </div>

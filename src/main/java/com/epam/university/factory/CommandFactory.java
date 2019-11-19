@@ -36,7 +36,7 @@ public class CommandFactory {
         getCommandMap.put("/about-us", new AboutUsCommand());
         getCommandMap.put("/language", new LanguageCommand());
         getCommandMap.put("/logout", new LogoutCommand());
-        getCommandMap.put("/register", new RegistrationCommand());
+        getCommandMap.put("/registration", new RegistrationCommand());
         
         getCommandMap.put("/admin", new AdminCommand());
         getCommandMap.put("/notification", new NotificationCommand());
@@ -44,7 +44,7 @@ public class CommandFactory {
         
         postCommandMap.put("/", new HomeCommand());
         postCommandMap.put("/login", new LoginCommand());
-        postCommandMap.put("/register", new RegistrationCommand());
+        postCommandMap.put("/registration", new RegistrationCommand());
         
         postCommandMap.put("/admin", new AdminCommand());
         postCommandMap.put("/notification", new NotificationCommand());

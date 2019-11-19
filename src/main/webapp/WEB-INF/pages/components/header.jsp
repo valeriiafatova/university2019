@@ -34,8 +34,8 @@
                 
                 <div class="col-lg-2 col-sm-4 col-6 header-top-right">
                     <a href="language?locale=en" class="text-uppercase">en</a>
-                    <a href="language?locale=de" class="text-uppercase">de</a>
-                    <a href="language?locale=ru" class="text-uppercase">ru</a>
+                    <a href="language?locale=de" class="text-uppercase ml-2">de</a>
+                    <a href="language?locale=ru" class="text-uppercase ml-2">ru</a>
                 </div>
                 <div class="col-lg-4 col-sm-2 col-2 header-top-right">
                     <c:choose>
@@ -45,6 +45,7 @@
                         </c:when>
                         <c:otherwise>
                             <a href="" class="text-uppercase login">Login</a>
+                            <a href="registration" class="text-uppercase ml-4">Register</a>
                         </c:otherwise>
                     </c:choose>
                 </div>

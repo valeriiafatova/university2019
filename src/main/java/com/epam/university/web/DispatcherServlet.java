@@ -1,7 +1,7 @@
 package com.epam.university.web;
 
-import com.epam.university.web.command.Command;
 import com.epam.university.factory.CommandFactory;
+import com.epam.university.web.command.Command;
 import com.epam.university.web.data.Page;
 import org.apache.log4j.Logger;
 

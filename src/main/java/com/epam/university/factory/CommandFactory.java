@@ -1,5 +1,10 @@
 package com.epam.university.factory;
 
+import com.epam.university.web.command.Command;
+import com.epam.university.web.command.CourseCommand;
+import com.epam.university.web.command.LanguageCommand;
+import com.epam.university.web.command.LoginCommand;
+import com.epam.university.web.command.LogoutCommand;
 import com.epam.university.web.command.RegistrationCommand;
 import com.epam.university.web.command.admin.AdminCommand;
 import com.epam.university.web.command.admin.NotificationCommand;
@@ -7,13 +12,8 @@ import com.epam.university.web.command.common.RatingCommand;
 import com.epam.university.web.command.pages.AboutUsCommand;
 import com.epam.university.web.command.pages.BlogCommand;
 import com.epam.university.web.command.pages.BlogDetail;
-import com.epam.university.web.command.Command;
 import com.epam.university.web.command.pages.ContactCommand;
-import com.epam.university.web.command.CourseCommand;
 import com.epam.university.web.command.pages.HomeCommand;
-import com.epam.university.web.command.LanguageCommand;
-import com.epam.university.web.command.LoginCommand;
-import com.epam.university.web.command.LogoutCommand;
 import com.epam.university.web.command.pages.NotFoundCommand;
 import com.epam.university.web.command.pages.SearchCommand;
 

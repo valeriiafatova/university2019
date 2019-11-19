@@ -1,9 +1,9 @@
 package com.epam.university.factory;
 
+import com.epam.university.dao.CourseDao;
 import com.epam.university.dao.EntityDao;
 import com.epam.university.dao.OutlineDao;
 import com.epam.university.dao.RatingDao;
-import com.epam.university.dao.CourseDao;
 import com.epam.university.dao.UserDao;
 import com.epam.university.enums.DaoType;
 

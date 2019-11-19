@@ -24,7 +24,7 @@ public class NotFoundCommandUnitTest {
     @Test
     public void shouldReturnNotFoundPage() {
         Page result = instance.perform(request);
-        
+
         assertThat(result.getUrl()).isEqualTo(NOT_FOUND_PAGE);
         assertThat(result.isRedirect()).isFalse();
     }

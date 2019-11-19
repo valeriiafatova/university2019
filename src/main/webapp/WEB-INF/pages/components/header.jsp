@@ -32,10 +32,12 @@
                     </a>
                 </div>
                 
-                <div class="col-lg-6 col-sm-6 col-8 header-top-right">
+                <div class="col-lg-4 col-sm-4 col-6 header-top-right">
                     <a href="language?locale=en" class="text-uppercase">en</a>
                     <a href="language?locale=de" class="text-uppercase">de</a>
                     <a href="language?locale=ru" class="text-uppercase">ru</a>
+                </div>
+                <div class="col-lg-2 col-sm-2 col-2 header-top-right">
                     <c:choose>
                         <c:when test="${not empty user}">
                         <a href="" class="text-uppercase my-account">My account</a>
@@ -63,7 +65,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href=""><img src="ui/img/logo.png" alt=""></a>
+                <a class="navbar-brand logo_h" href=""><img src="static/img/logo.png" alt=""></a>
                 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -41,7 +41,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 text-center">
-                    <img class="img-fluid" src="ui/img/about-img.png" alt="">
+                    <img class="img-fluid" src="static/img/about-img.png" alt="">
                 </div>
 
                 <div class="offset-lg-1 col-lg-5">

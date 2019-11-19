@@ -44,8 +44,8 @@ public class LocalizationFilter implements Filter {
     private void setLocale(HttpSession session) {
         String locale = (String) session.getAttribute(LOCALE);
         if (locale == null) {
-            LOG.info("Set locale to session");
-            LOG.info("Set locale to session");
+            LOG.debug("Set locale to session");
+            LOG.debug("Set locale to session");
             session.setAttribute(LOCALE, defaultLocale);
         }
     }
@@ -53,7 +53,7 @@ public class LocalizationFilter implements Filter {
     private void setBundle(HttpSession session) {
         String bundle = (String) session.getAttribute(BUNDLE);
         if (bundle == null) {
-            LOG.info("Set bundle to session");
+            LOG.debug("Set bundle to session");
             session.setAttribute(BUNDLE, defaultBundle);
         }
     }

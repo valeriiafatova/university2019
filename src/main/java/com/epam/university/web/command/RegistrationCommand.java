@@ -7,6 +7,7 @@ import com.epam.university.service.UserService;
 import com.epam.university.web.data.Page;
 import com.epam.university.web.form.RegistrationForm;
 import com.epam.university.web.form.validator.RegistrationFormValidator;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,7 +15,9 @@ import java.util.Optional;
 
 import static com.epam.university.constant.PageUrlConstants.REGISTER_PAGE;
 
-public class RegistrationCommand extends MultipleMethodCommand{
+public class RegistrationCommand extends MultipleMethodCommand {
+    private static final Logger LOG = Logger.getLogger(RegistrationCommand.class);
+
     private UserService userService;
 
     public RegistrationCommand() {
@@ -32,19 +35,23 @@ public class RegistrationCommand extends MultipleMethodCommand{
 
         boolean exist = userService.isExist(login);
         
-        if(exist){
+        LOG.info(String.format("User with login % already exist %b", login, exist));
+        
+        if (exist) {
             return processError(request, "User already exist");
         }
 
-        com.epam.university.web.form.RegistrationForm registrationForm = getRegistrationForm(request);
+        RegistrationForm registrationForm = getRegistrationForm(request);
 
-        if(isFormNotValid(registrationForm)){
+        if (isFormNotValid(registrationForm)) {
+            LOG.info("Registration form is invalid");
             return processError(request, "Invalid form");
         }
-            
+
         Optional<User> user = userService.createUser(registrationForm);
-        
-        if(user.isPresent()){ 
+
+        if (user.isPresent()) {
+            LOG.info("Redirect to home user.");
             request.getSession().setAttribute("user", user.get());
             return new Page("/", true);
         }
@@ -61,10 +68,11 @@ public class RegistrationCommand extends MultipleMethodCommand{
         return !RegistrationFormValidator.validate(registrationForm);
     }
 
-    private com.epam.university.web.form.RegistrationForm getRegistrationForm(HttpServletRequest request) {
-        return mapForm(request, req -> new com.epam.university.web.form.RegistrationForm(request.getParameter("first_name"), request.getParameter("last_name"),
-                    request.getParameter("login"), request.getParameter("password"),
-                    request.getParameter("password_confirm"), Role.STUDENT));
+    private RegistrationForm getRegistrationForm(HttpServletRequest request) {
+        return mapForm(request,
+                req -> new RegistrationForm(request.getParameter("first_name"), request.getParameter("last_name"),
+                        request.getParameter("login"), request.getParameter("password"),
+                        request.getParameter("password_confirm"), Role.STUDENT));
     }
 
 }

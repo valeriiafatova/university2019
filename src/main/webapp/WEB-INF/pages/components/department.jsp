@@ -10,7 +10,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-6 col-12 text-center mt-100">
                             <div class="single_department">
                                 <div class="dpmt_icon">
-                                    <img src="ui/img/dpmt/icon1.png" alt="">
+                                    <img src="static/img/dpmt/icon1.png" alt="">
                                 </div>
                                 <h4>Languages</h4>
                             </div>
@@ -19,7 +19,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-6 col-12 text-center">
                             <div class="single_department">
                                 <div class="dpmt_icon">
-                                    <img src="ui/img/dpmt/icon2.png" alt="">
+                                    <img src="static/img/dpmt/icon2.png" alt="">
                                 </div>
                                 <h4>Business</h4>
                             </div>
@@ -28,7 +28,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-6 col-12 text-center mt-100">
                             <div class="single_department">
                                 <div class="dpmt_icon">
-                                    <img src="ui/img/dpmt/icon3.png" alt="">
+                                    <img src="static/img/dpmt/icon3.png" alt="">
                                 </div>
                                 <h4>Literature</h4>
                             </div>
@@ -37,7 +37,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-6 col-12 text-center">
                             <div class="single_department">
                                 <div class="dpmt_icon">
-                                    <img src="ui/img/dpmt/icon4.png" alt="">
+                                    <img src="static/img/dpmt/icon4.png" alt="">
                                 </div>
                                 <h4>Software</h4>
                             </div>
@@ -46,7 +46,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-6 col-12 text-center mt--100">
                             <div class="single_department">
                                 <div class="dpmt_icon">
-                                    <img src="ui/img/dpmt/icon5.png" alt="">
+                                    <img src="static/img/dpmt/icon5.png" alt="">
                                 </div>
                                 <h4>Design</h4>
                             </div>
@@ -55,7 +55,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-6 col-12 text-center">
                             <div class="single_department">
                                 <div class="dpmt_icon">
-                                    <img src="ui/img/dpmt/icon6.png" alt="">
+                                    <img src="static/img/dpmt/icon6.png" alt="">
                                 </div>
                                 <h4>Coaching</h4>
                             </div>
@@ -64,7 +64,7 @@
                         <div class="offset-lg-4 col-lg-4 col-md-4 col-sm-6 col-12 text-center mt--100">
                             <div class="single_department">
                                 <div class="dpmt_icon">
-                                    <img src="ui/img/dpmt/icon7.png" alt="">
+                                    <img src="static/img/dpmt/icon7.png" alt="">
                                 </div>
                                 <h4>Development</h4>
                             </div>

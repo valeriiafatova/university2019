@@ -16,7 +16,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="single_fact">
                     <div class="f_icon">
-                        <img src="ui/img/f-icons/icon1.png" alt="">
+                        <img src="static/img/f-icons/icon1.png" alt="">
                     </div>
                     <h4>Expert Mentors</h4>
                     <p>Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed do eiusmod tempor incididunt labore dolor sit
@@ -28,7 +28,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="single_fact">
                     <div class="f_icon">
-                        <img src="ui/img/f-icons/icon2.png" alt="">
+                        <img src="static/img/f-icons/icon2.png" alt="">
                     </div>
                     <h4>25000+ Courses</h4>
                     <p>Lorem ipsum dolor sit amet consec tetur adipis icing elit, sed do eiusmod tempor incididunt labore dolor sit
@@ -39,7 +39,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="single_fact">
                     <div class="f_icon">
-                        <img src="ui/img/f-icons/icon3.png" alt="">
+                        <img src="static/img/f-icons/icon3.png" alt="">
                     </div>
                     <h4>Student Membership</h4>
                     <p>Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed do eiusmod tempor incididunt labore dolor sit
@@ -51,7 +51,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="single_fact">
                     <div class="f_icon">
-                        <img src="ui/img/f-icons/icon4.png" alt="">
+                        <img src="static/img/f-icons/icon4.png" alt="">
                     </div>
                     <h4>Lifetime Access</h4>
                     <p>Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed do eiusmod tempor incididunt labore dolor sit
@@ -62,7 +62,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="single_fact">
                     <div class="f_icon">
-                        <img src="ui/img/f-icons/icon5.png" alt="">
+                        <img src="static/img/f-icons/icon5.png" alt="">
                     </div>
                     <h4>Source File Included</h4>
                     <p>Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed do eiusmod tempor incididunt labore dolor sit
@@ -73,7 +73,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="single_fact">
                     <div class="f_icon">
-                        <img src="ui/img/f-icons/icon6.png" alt="">
+                        <img src="static/img/f-icons/icon6.png" alt="">
                     </div>
                     <h4>Live Support</h4>
                     <p>Lorem ipsum dolor sit amet consec tetur adipis icing elit, sed do eiusmod tempor incididunt labore dolor sit

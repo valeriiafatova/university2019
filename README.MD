@@ -1,7 +1,7 @@
-Curse system.
+Course system.
 Business logic: 
 1. User could login as lecturer or student. - LoginCommand
-2. Student could register on side. - RegisterCommand
+2. Student could register on site. - RegisterCommand
 3. All could see courses page. - CoursesCommand (GET)
 4. All could see specific course page. - CoursesCommand (GET)
 5. Student could apply to course.  - CoursesCommand (POST)
@@ -14,3 +14,4 @@ Business logic:
 12. Student could see Ratings - StudentRatingCommand
 13. User on site could change language - LanguageCommand
 14. Admin could send notifications - NotificationCommand
+15. User could logout 

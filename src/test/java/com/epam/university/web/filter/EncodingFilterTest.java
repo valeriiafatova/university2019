@@ -40,16 +40,16 @@ public class EncodingFilterTest {
     @Test
     public void shouldPopulateEncodingFromConfig() throws ServletException {
         when(filterConfig.getInitParameter(REQUEST_ENCODING)).thenReturn(ENCODING_FROM_CONFIG);
-        
+
         instance.init(filterConfig);
-        
+
         assertThat(instance.getDefaultEncoding()).isEqualTo(ENCODING_FROM_CONFIG);
     }
 
     @Test
     public void shouldPopulateDefaultEncoding() throws ServletException {
         when(filterConfig.getInitParameter(REQUEST_ENCODING)).thenReturn(null);
-        
+
         instance.init(filterConfig);
 
         assertThat(instance.getDefaultEncoding()).isEqualTo(ENCODING_UTF_8);
@@ -58,20 +58,21 @@ public class EncodingFilterTest {
     @Test
     public void shouldPopulateCharacterEncodingWhenNull() throws ServletException, IOException {
         instance.doFilter(request, response, filterChain);
-        
+
         verify(request).setCharacterEncoding(null);
-        
+
     }
+
     @Test
     public void shouldNotPopulateCharacterEncodingWhenNotNull() throws ServletException, IOException {
         when(filterConfig.getInitParameter(REQUEST_ENCODING)).thenReturn(ENCODING_FROM_CONFIG);
         instance.init(filterConfig);
         when(request.getCharacterEncoding()).thenReturn(ENCODING_FROM_CONFIG);
-        
+
         instance.doFilter(request, response, filterChain);
-        
+
         verify(request, never()).setCharacterEncoding(ENCODING_FROM_CONFIG);
-        
+
     }
 
     @Test
@@ -79,7 +80,7 @@ public class EncodingFilterTest {
         when(filterConfig.getInitParameter(REQUEST_ENCODING)).thenReturn(ENCODING_FROM_CONFIG);
         instance.init(filterConfig);
         instance.doFilter(request, response, filterChain);
-        
+
         verify(response).setContentType(DEFAULT_CONTENT_TYPE);
         verify(response).setCharacterEncoding(ENCODING_FROM_CONFIG);
     }

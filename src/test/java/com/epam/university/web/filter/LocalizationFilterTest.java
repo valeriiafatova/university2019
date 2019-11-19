@@ -30,8 +30,8 @@ import static org.mockito.Mockito.when;
 public class LocalizationFilterTest {
     private static final String LOCALE = "locale";
     private static final String BUNDLE = "bundle";
-    public static final String LOCALE_VALUE = "locale_value";
-    public static final String BUNDLE_VALUE = "bundle_value";
+    private static final String LOCALE_VALUE = "locale_value";
+    private static final String BUNDLE_VALUE = "bundle_value";
 
     @InjectMocks
     private LocalizationFilter instance;
@@ -85,7 +85,7 @@ public class LocalizationFilterTest {
 
         verify(session, never()).setAttribute(eq(LOCALE), anyString());
     }
-    
+
     @Test
     public void shouldPopulateBundleToSession() throws ServletException, IOException {
         instance.init(filterConfig);

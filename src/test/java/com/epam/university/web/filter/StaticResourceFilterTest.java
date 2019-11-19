@@ -20,10 +20,11 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class StaticResourceFilterTest {
 
-    public static final String CONTEXT_PATH = "/context";
-    public static final String APP_PATH = "/app/someCommand";
-    public static final String UI_PATH = CONTEXT_PATH + "/ui/file.exe";
-    public static final String RESOURCE_PATH = CONTEXT_PATH + "/resources/somefile.ext";
+    private static final String CONTEXT_PATH = "/context";
+    private static final String APP_PATH = "/app/someCommand";
+    private static final String STATIC_PATH = CONTEXT_PATH + "/static/file.exe";
+    private static final String RESOURCE_PATH = CONTEXT_PATH + "/resources/somefile.ext";
+
     @InjectMocks
     private StaticResourceFilter instance;
 
@@ -44,24 +45,25 @@ public class StaticResourceFilterTest {
     @Test
     public void shouldSkipWhenResource() throws IOException, ServletException {
         when(request.getRequestURI()).thenReturn(RESOURCE_PATH);
-        
+
         instance.doFilter(request, response, filterChain);
-        
+
         verify(filterChain).doFilter(request, response);
     }
 
     @Test
-    public void shouldSkipWhenUIResource() throws IOException, ServletException {
-        when(request.getRequestURI()).thenReturn(UI_PATH);
-        
+    public void shouldSkipWhenStaticResource() throws IOException, ServletException {
+        when(request.getRequestURI()).thenReturn(STATIC_PATH);
+
         instance.doFilter(request, response, filterChain);
-        
+
         verify(filterChain).doFilter(request, response);
-    } 
+    }
+
     @Test
     public void shouldSkipWhenServletPath() throws IOException, ServletException {
         when(request.getRequestURI()).thenReturn(CONTEXT_PATH + APP_PATH);
-        
+
         instance.doFilter(request, response, filterChain);
         
         verify(filterChain).doFilter(request, response);
@@ -73,7 +75,7 @@ public class StaticResourceFilterTest {
         when(request.getRequestDispatcher(APP_PATH)).thenReturn(requestDispatcher);
 
         instance.doFilter(request, response, filterChain);
-        
+
         verify(requestDispatcher).forward(request, response);
     }
 }

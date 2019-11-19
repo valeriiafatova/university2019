@@ -1,7 +1,5 @@
 package com.epam.university.entity;
 
-import java.util.List;
-
 public class Outline {
 
     private int id;

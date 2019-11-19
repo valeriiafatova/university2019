@@ -23,18 +23,26 @@ public class CourseService {
 
     public List<CourseDTO> getAll() {
         List<Course> all = subjectDao.getAll(true);
-        return all.stream().map(course -> {
-            User lecturer = userDao.getById(course.getLecturerId(), false);
-            CourseDTO courseDTO = new CourseDTO();
-            courseDTO.setId(course.getId());
-            courseDTO.setTitle(course.getTitle());
-            courseDTO.setDescription(course.getDescription());
+        return all.stream()
+                .map(this::mapCourseDTO)
+                .collect(Collectors.toList());
+    }
 
-            UserDTO lecturerDTO = new UserDTO();
-            lecturerDTO.setId(lecturer.getId());
-            lecturerDTO.setName(lecturer.getFirstName() + " " + lecturer.getLastName());
-            courseDTO.setLecturer(lecturerDTO);
-            return courseDTO;
-        }).collect(Collectors.toList());
+    private CourseDTO mapCourseDTO(Course course) {
+        CourseDTO courseDTO = new CourseDTO();
+        courseDTO.setId(course.getId());
+        courseDTO.setTitle(course.getTitle());
+        courseDTO.setDescription(course.getDescription());
+
+        courseDTO.setLecturer(mapLecturer(course.getLecturerId()));
+        return courseDTO;
+    }
+
+    private UserDTO mapLecturer(int lecturerId) {
+        User lecturer = userDao.getById(lecturerId, false);
+        UserDTO lecturerDTO = new UserDTO();
+        lecturerDTO.setId(lecturer.getId());
+        lecturerDTO.setName(lecturer.getFirstName() + " " + lecturer.getLastName());
+        return lecturerDTO;
     }
 }

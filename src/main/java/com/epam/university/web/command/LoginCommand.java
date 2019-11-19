@@ -26,13 +26,13 @@ public class LoginCommand extends MultipleMethodCommand {
 
     @Override
     protected Page performPost(HttpServletRequest request) {
+        HttpSession session = request.getSession();
         String login = request.getParameter("login");
         String password = request.getParameter("password");
-        System.out.println("login: " + login + ", password: " + password);
-
-        HttpSession session = request.getSession();
-
+        LOG.debug(String.format("Login %s, password %s", login, password));
+        
         Optional<User> optionalUser = userService.validateUser(login, password);
+        
         if (optionalUser.isPresent()) {
             LOG.info("Login success");
             

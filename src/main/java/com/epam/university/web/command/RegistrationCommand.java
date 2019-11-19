@@ -10,9 +10,9 @@ import com.epam.university.web.form.validator.RegistrationFormValidator;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
-
 import java.util.Optional;
 
+import static com.epam.university.constant.PageUrlConstants.HOME_REDIRECT;
 import static com.epam.university.constant.PageUrlConstants.REGISTER_PAGE;
 
 public class RegistrationCommand extends MultipleMethodCommand {
@@ -35,7 +35,7 @@ public class RegistrationCommand extends MultipleMethodCommand {
 
         boolean exist = userService.isExist(login);
         
-        LOG.info(String.format("User with login % already exist %b", login, exist));
+        LOG.info(String.format("User with login %s already exist %b", login, exist));
         
         if (exist) {
             return processError(request, "User already exist");
@@ -53,7 +53,7 @@ public class RegistrationCommand extends MultipleMethodCommand {
         if (user.isPresent()) {
             LOG.info("Redirect to home user.");
             request.getSession().setAttribute("user", user.get());
-            return new Page("/", true);
+            return new Page(HOME_REDIRECT, true);
         }
 
         return processError(request, "Could not create user");
@@ -70,9 +70,12 @@ public class RegistrationCommand extends MultipleMethodCommand {
 
     private RegistrationForm getRegistrationForm(HttpServletRequest request) {
         return mapForm(request,
-                req -> new RegistrationForm(request.getParameter("first_name"), request.getParameter("last_name"),
-                        request.getParameter("login"), request.getParameter("password"),
-                        request.getParameter("password_confirm"), Role.STUDENT));
+                req -> new RegistrationForm(request.getParameter("first_name"), 
+                        request.getParameter("last_name"),
+                        request.getParameter("login"), 
+                        request.getParameter("password"),
+                        request.getParameter("password_confirm"), 
+                        Role.STUDENT));
     }
 
 }

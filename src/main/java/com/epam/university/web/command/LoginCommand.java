@@ -7,6 +7,7 @@ import com.epam.university.web.data.Page;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Optional;
 
 public class LoginCommand extends MultipleMethodCommand {
     private UserService userService;
@@ -28,9 +29,9 @@ public class LoginCommand extends MultipleMethodCommand {
 
         HttpSession session = request.getSession();
 
-        int userId = userService.validateUser(login, password);
-        if (userId != 0) {
-            User user = userService.getUser(userId);
+        Optional<User> optionalUser = userService.validateUser(login, password);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
             session.setAttribute("user", user);
             return new Page("/", true);
         }

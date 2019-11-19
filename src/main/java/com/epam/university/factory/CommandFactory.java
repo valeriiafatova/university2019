@@ -1,6 +1,6 @@
 package com.epam.university.factory;
 
-import com.epam.university.web.command.RegisterCommand;
+import com.epam.university.web.command.RegistrationCommand;
 import com.epam.university.web.command.admin.AdminCommand;
 import com.epam.university.web.command.admin.NotificationCommand;
 import com.epam.university.web.command.common.RatingCommand;
@@ -36,7 +36,7 @@ public class CommandFactory {
         getCommandMap.put("/about-us", new AboutUsCommand());
         getCommandMap.put("/language", new LanguageCommand());
         getCommandMap.put("/logout", new LogoutCommand());
-        getCommandMap.put("/register", new RegisterCommand());
+        getCommandMap.put("/register", new RegistrationCommand());
         
         getCommandMap.put("/admin", new AdminCommand());
         getCommandMap.put("/notification", new NotificationCommand());
@@ -44,7 +44,7 @@ public class CommandFactory {
         
         postCommandMap.put("/", new HomeCommand());
         postCommandMap.put("/login", new LoginCommand());
-        postCommandMap.put("/register", new RegisterCommand());
+        postCommandMap.put("/register", new RegistrationCommand());
         
         postCommandMap.put("/admin", new AdminCommand());
         postCommandMap.put("/notification", new NotificationCommand());

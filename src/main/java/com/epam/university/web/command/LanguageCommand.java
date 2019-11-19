@@ -2,11 +2,7 @@ package com.epam.university.web.command;
 
 import com.epam.university.web.data.Page;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import java.util.Arrays;
-import java.util.List;
-
 
 public class LanguageCommand implements Command {
     

@@ -27,7 +27,7 @@
                             <div class="page_link">
                                 <a href="">Home</a>
                                 <a href="courses">Courses</a>
-                                <a href="course-details">Details</a>
+                                <a href="courses?course_id=1">Details</a>
                             </div>
                         </div>
                     </div>

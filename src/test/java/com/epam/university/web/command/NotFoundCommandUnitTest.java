@@ -1,5 +1,6 @@
 package com.epam.university.web.command;
 
+import com.epam.university.web.command.pages.NotFoundCommand;
 import com.epam.university.web.data.Page;
 import org.junit.Test;
 import org.junit.runner.RunWith;

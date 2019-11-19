@@ -1,5 +1,6 @@
-package com.epam.university.web.command;
+package com.epam.university.web.command.pages;
 
+import com.epam.university.web.command.Command;
 import com.epam.university.web.data.Page;
 
 import javax.servlet.http.HttpServletRequest;

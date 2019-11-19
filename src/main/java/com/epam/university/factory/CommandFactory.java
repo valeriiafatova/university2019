@@ -1,18 +1,21 @@
 package com.epam.university.factory;
 
-import com.epam.university.web.command.AboutUsCommand;
-import com.epam.university.web.command.BlogCommand;
-import com.epam.university.web.command.BlogDetail;
+import com.epam.university.web.command.RegisterCommand;
+import com.epam.university.web.command.admin.AdminCommand;
+import com.epam.university.web.command.admin.NotificationCommand;
+import com.epam.university.web.command.common.RatingCommand;
+import com.epam.university.web.command.pages.AboutUsCommand;
+import com.epam.university.web.command.pages.BlogCommand;
+import com.epam.university.web.command.pages.BlogDetail;
 import com.epam.university.web.command.Command;
-import com.epam.university.web.command.ContactCommand;
+import com.epam.university.web.command.pages.ContactCommand;
 import com.epam.university.web.command.CourseCommand;
-import com.epam.university.web.command.CourseDetailsCommand;
-import com.epam.university.web.command.HomeCommand;
+import com.epam.university.web.command.pages.HomeCommand;
 import com.epam.university.web.command.LanguageCommand;
 import com.epam.university.web.command.LoginCommand;
 import com.epam.university.web.command.LogoutCommand;
-import com.epam.university.web.command.NotFoundCommand;
-import com.epam.university.web.command.SearchCommand;
+import com.epam.university.web.command.pages.NotFoundCommand;
+import com.epam.university.web.command.pages.SearchCommand;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,8 +28,7 @@ public class CommandFactory {
     static {
         getCommandMap.put("/", new HomeCommand());
         getCommandMap.put("/404", defaultCommand);
-        getCommandMap.put("/course", new CourseCommand());
-        getCommandMap.put("/course-details", new CourseDetailsCommand());
+        getCommandMap.put("/courses", new CourseCommand());
         getCommandMap.put("/blog", new BlogCommand());
         getCommandMap.put("/single-blog", new BlogDetail());
         getCommandMap.put("/contact", new ContactCommand());
@@ -34,9 +36,19 @@ public class CommandFactory {
         getCommandMap.put("/about-us", new AboutUsCommand());
         getCommandMap.put("/language", new LanguageCommand());
         getCommandMap.put("/logout", new LogoutCommand());
+        getCommandMap.put("/register", new RegisterCommand());
+        
+        getCommandMap.put("/admin", new AdminCommand());
+        getCommandMap.put("/notification", new NotificationCommand());
+        getCommandMap.put("/rating", new RatingCommand());
         
         postCommandMap.put("/", new HomeCommand());
         postCommandMap.put("/login", new LoginCommand());
+        postCommandMap.put("/register", new RegisterCommand());
+        
+        postCommandMap.put("/admin", new AdminCommand());
+        postCommandMap.put("/notification", new NotificationCommand());
+        postCommandMap.put("/rating", new RatingCommand());
     }
 
     private CommandFactory() {

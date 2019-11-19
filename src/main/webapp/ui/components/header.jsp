@@ -80,8 +80,8 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                aria-expanded="false">Pages</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="course">Courses</a></li>
-                                <li class="nav-item"><a class="nav-link" href="course-details">Course Details</a></li>
+                                <li class="nav-item"><a class="nav-link" href="courses">Courses</a></li>
+                                <li class="nav-item"><a class="nav-link" href="courses?course_id=1">Course Details</a></li>
                             </ul>
                         </li>
                         <li class="nav-item submenu dropdown">

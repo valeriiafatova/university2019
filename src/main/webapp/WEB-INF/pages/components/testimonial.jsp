@@ -8,7 +8,7 @@
                     <!-- single testimonial -->
                     <div class="single_testimonial">
                         <div class="testimonial_head">
-                            <img src="ui/img/quote.png" alt="">
+                            <img src="static/img/quote.png" alt="">
                             <h4>Fanny Spencer</h4>
                             <div class="review">
                                 <i class="fa fa-star"></i>
@@ -26,7 +26,7 @@
 
                     <div class="single_testimonial">
                         <div class="testimonial_head">
-                            <img src="ui/img/quote.png" alt="">
+                            <img src="static/img/quote.png" alt="">
                             <h4>Fanny Spencer</h4>
                             <div class="review">
                                 <i class="fa fa-star"></i>
@@ -44,7 +44,7 @@
 
                     <div class="single_testimonial">
                         <div class="testimonial_head">
-                            <img src="ui/img/quote.png" alt="">
+                            <img src="static/img/quote.png" alt="">
                             <h4>Fanny Spencer</h4>
                             <div class="review">
                                 <i class="fa fa-star"></i>
@@ -62,7 +62,7 @@
 
                     <div class="single_testimonial">
                         <div class="testimonial_head">
-                            <img src="ui/img/quote.png" alt="">
+                            <img src="static/img/quote.png" alt="">
                             <h4>Fanny Spencer</h4>
                             <div class="review">
                                 <i class="fa fa-star"></i>
@@ -82,25 +82,25 @@
                 <div class="owl-thumbs d-flex justify-content-center" data-slider-id="1">
                     <div class="owl-thumb-item">
                         <div class="position-relative">
-                            <img class="img-fluid" src="ui/img/testimonial/t1.jpg" alt="">
+                            <img class="img-fluid" src="static/img/testimonial/t1.jpg" alt="">
                         </div>
                         <div class="overlay-grad"></div>
                     </div>
                     <div class="owl-thumb-item">
                         <div class="position-relative">
-                            <img class="img-fluid" src="ui/img/testimonial/t2.jpg" alt="">
+                            <img class="img-fluid" src="static/img/testimonial/t2.jpg" alt="">
                         </div>
                         <div class="overlay-grad"></div>
                     </div>
                     <div class="owl-thumb-item">
                         <div class="position-relative">
-                            <img class="img-fluid" src="ui/img/testimonial/t3.jpg" alt="">
+                            <img class="img-fluid" src="static/img/testimonial/t3.jpg" alt="">
                         </div>
                         <div class="overlay-grad"></div>
                     </div>
                     <div class="owl-thumb-item">
                         <div class="position-relative">
-                            <img class="img-fluid" src="ui/img/testimonial/t4.jpg" alt="">
+                            <img class="img-fluid" src="static/img/testimonial/t4.jpg" alt="">
                         </div>
                         <div class="overlay-grad"></div>
                     </div>

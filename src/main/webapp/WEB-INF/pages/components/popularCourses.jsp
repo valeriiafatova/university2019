@@ -20,9 +20,9 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="single_course">
                         <div class="course_head overlay">
-                            <img class="img-fluid w-100" src="ui/img/courses/trainer1.jpg" alt="">
+                            <img class="img-fluid w-100" src="static/img/courses/trainer1.jpg" alt="">
                             <div class="authr_meta">
-                                <img src="ui/img/author1.png" alt="">
+                                <img src="static/img/author1.png" alt="">
                                 <span>${course.lecturer.name}</span>
                             </div>
                         </div>

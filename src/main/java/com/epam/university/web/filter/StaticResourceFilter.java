@@ -14,7 +14,8 @@ import java.io.IOException;
 public class StaticResourceFilter implements Filter {
     private static final Logger LOG = Logger.getLogger(StaticResourceFilter.class);
     private static final String RESOURCES_PATH = "/resources/";
-    private static final String UI_PATH = "/ui/";
+    private static final String PAGES_PATH = "/pages/";
+    private static final String STATIC_RESOURCES_PATH = "/static/";
     private static final String APP_PATH = "/app";
 
     @Override
@@ -25,11 +26,11 @@ public class StaticResourceFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-        LOG.info("Do service, URI: " + httpServletRequest.getRequestURI());
+        LOG.debug("Do service, URI: " + httpServletRequest.getRequestURI());
         String path = httpServletRequest.getRequestURI().substring(httpServletRequest.getContextPath().length());
 
         if (shouldBeSkipped(path)) {
-            LOG.info("Static resource: " + path);
+            LOG.debug("Static resource: " + path);
             chain.doFilter(request, response);
             return;
         }
@@ -42,7 +43,8 @@ public class StaticResourceFilter implements Filter {
     }
 
     private boolean shouldBeSkipped(String path) {
-        return path.startsWith(RESOURCES_PATH) || path.startsWith(UI_PATH) || path.startsWith(APP_PATH);
+        return path.startsWith(RESOURCES_PATH) || path.startsWith(PAGES_PATH) 
+                || path.startsWith(STATIC_RESOURCES_PATH) || path.startsWith(APP_PATH);
     }
 
     @Override

@@ -43,7 +43,7 @@
             <div class="row">
                 <div class="col-lg-8 course_details_left">
                     <div class="main_image">
-                        <img class="img-fluid" src="ui/img/courses/course-details.jpg" alt="">
+                        <img class="img-fluid" src="static/img/courses/course-details.jpg" alt="">
                     </div>
                     <div class="content_wrapper">
                         <h4 class="title">Objectives</h4>
@@ -219,7 +219,7 @@
                                 <div class="single-comment single-reviews justify-content-between d-flex">
                                     <div class="user justify-content-between d-flex">
                                         <div class="thumb">
-                                            <img src="ui/img/blog/c1.jpg" alt="">
+                                            <img src="static/img/blog/c1.jpg" alt="">
                                         </div>
                                         <div class="desc">
                                             <h5><a href="#">Emilly Blunt</a>
@@ -243,7 +243,7 @@
                                 <div class="single-comment single-reviews justify-content-between d-flex">
                                     <div class="user justify-content-between d-flex">
                                         <div class="thumb">
-                                            <img src="ui/img/blog/c2.jpg" alt="">
+                                            <img src="static/img/blog/c2.jpg" alt="">
                                         </div>
                                         <div class="desc">
                                             <h5><a href="#">Elsie Cunningham</a>
@@ -267,7 +267,7 @@
                                 <div class="single-comment single-reviews justify-content-between d-flex">
                                     <div class="user justify-content-between d-flex">
                                         <div class="thumb">
-                                            <img src="ui/img/blog/c3.jpg" alt="">
+                                            <img src="static/img/blog/c3.jpg" alt="">
                                         </div>
                                         <div class="desc">
                                             <h5><a href="#">Maria Luna</a>

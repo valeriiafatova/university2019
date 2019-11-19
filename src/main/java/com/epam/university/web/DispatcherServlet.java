@@ -38,8 +38,12 @@ public class DispatcherServlet extends HttpServlet {
         if (page.isRedirect()) {
             resp.sendRedirect(req.getContextPath() + page.getUrl());
         } else {
-            req.getRequestDispatcher(page.getUrl()).forward(req, resp);
+            req.getRequestDispatcher(resolvePath(page.getUrl())).forward(req, resp);
         }
+    }
+    
+    private String resolvePath(String path){
+        return "/WEB-INF/pages/" + path + ".jsp";
     }
 
     private String getPath(HttpServletRequest req) {

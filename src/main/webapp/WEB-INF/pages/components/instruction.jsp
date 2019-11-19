@@ -23,7 +23,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="single_instructor">
                     <div class="author">
-                        <img src="ui/img/instructors/ins1.jpg" alt="">
+                        <img src="static/img/instructors/ins1.jpg" alt="">
                     </div>
                     <div class="author_decs">
                         <h4>Ethel Davis</h4>
@@ -42,7 +42,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="single_instructor">
                     <div class="author">
-                        <img src="ui/img/instructors/ins2.jpg" alt="">
+                        <img src="static/img/instructors/ins2.jpg" alt="">
                     </div>
                     <div class="author_decs">
                         <h4>Rodney Cooper</h4>
@@ -61,7 +61,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="single_instructor">
                     <div class="author">
-                        <img src="ui/img/instructors/ins3.jpg" alt="">
+                        <img src="static/img/instructors/ins3.jpg" alt="">
                     </div>
                     <div class="author_decs">
                         <h4>Dane Walker</h4>
@@ -80,7 +80,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="single_instructor">
                     <div class="author">
-                        <img src="ui/img/instructors/ins4.jpg" alt="">
+                        <img src="static/img/instructors/ins4.jpg" alt="">
                     </div>
                     <div class="author_decs">
                         <h4>Lena Keller</h4>

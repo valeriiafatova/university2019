@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="col-lg-9">
-                    <form class="row contact_form" action="ui/contact_process.php" method="post" id="contactForm"
+                    <form class="row contact_form" action="static/contact_process.php" method="post" id="contactForm"
                         novalidate="novalidate">
                         <div class="col-md-6">
                             <div class="form-group">

@@ -13,13 +13,13 @@ public class CourseDao extends AbstractDao<Course> {
     private static final String COLUMN_LECTURER_ID = "lecturer_id";
     private static final String SELECT_ALL = "SELECT * FROM course";
 
-    private static final String INSERT_INTO_SUBJECT =
+    private static final String INSERT_INTO_COURSE =
             "INSERT INTO course (" + COLUMN_TITLE + ", " + COLUMN_DESCRIPTION + ") VALUE (?, ?)";
 
-    private static final String UPDATE_SUBJECT =
+    private static final String UPDATE_COURSE =
             "UPDATE course " + COLUMN_TITLE + "=?, " + COLUMN_DESCRIPTION + "= ? WHERE " + COLUMN_ID + " = ?";
 
-    private static final String DELETE_SUBJECT = "DELETE FROM course " + "WHERE " + COLUMN_ID + " = ?";
+    private static final String DELETE_COURSE = "DELETE FROM course " + "WHERE " + COLUMN_ID + " = ?";
 
     public static final String SELECT_ALL_FULL =
             "SELECT * FROM `course` join `course_lecturer` on course_lecturer.course_id = course.id ";
@@ -45,7 +45,7 @@ public class CourseDao extends AbstractDao<Course> {
     
     @Override
     public boolean create(Course entity) {
-        return createUpdate(INSERT_INTO_SUBJECT, ps -> {
+        return createUpdate(INSERT_INTO_COURSE, ps -> {
             ps.setString(1, entity.getTitle());
             ps.setString(2, entity.getDescription());
         });
@@ -53,7 +53,7 @@ public class CourseDao extends AbstractDao<Course> {
 
     @Override
     public boolean update(Course entity) {
-        return createUpdate(UPDATE_SUBJECT, ps -> {
+        return createUpdate(UPDATE_COURSE, ps -> {
             ps.setString(1, entity.getTitle());
             ps.setString(2, entity.getDescription());
             ps.setInt(3, entity.getId());
@@ -63,7 +63,7 @@ public class CourseDao extends AbstractDao<Course> {
     @Override
     public boolean remove(Course entity) {
         LOG.debug("Delete rating: " + entity);
-        return createUpdate(DELETE_SUBJECT, ps -> ps.setInt(1, entity.getId()));
+        return createUpdate(DELETE_COURSE, ps -> ps.setInt(1, entity.getId()));
     }
 
     private EntityMapper<Course> getFullMapper() {

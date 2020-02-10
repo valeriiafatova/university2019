@@ -7,17 +7,23 @@ import java.time.LocalDate;
 public class Rating {
     private int id;
     private int studentId;
-    private int subjectId;
+    private int courseId;
     private LocalDate date;
     private Ratings rating;
 
-    public Rating(int id, int studentId, int subjectId, LocalDate date, Ratings rating) {
+    public Rating(int id, int studentId, int courseId, LocalDate date, Ratings rating) {
         this.id = id;
         this.studentId = studentId;
-        this.subjectId = subjectId;
+        this.courseId = courseId;
         this.date = date;
         this.rating = rating;
     }
+
+    public Rating(int studentId, int courseId) {
+        this.studentId = studentId;
+        this.courseId = courseId;
+    }
+
 
     public Rating() {
     }
@@ -38,12 +44,12 @@ public class Rating {
         this.studentId = studentId;
     }
 
-    public int getSubjectId() {
-        return subjectId;
+    public int getCourseId() {
+        return courseId;
     }
 
-    public void setSubjectId(int subjectId) {
-        this.subjectId = subjectId;
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 
     public LocalDate getDate() {
@@ -64,7 +70,7 @@ public class Rating {
 
     @Override
     public String toString() {
-        return "Rating{" + "id=" + id + ", studentId=" + studentId + ", subjectId=" + subjectId + ", date=" + date +
+        return "Rating{" + "id=" + id + ", studentId=" + studentId + ", courseId=" + courseId + ", date=" + date +
                 ", rating=" + rating + '}' + "\n";
     }
 }

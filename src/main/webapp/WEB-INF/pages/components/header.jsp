@@ -75,7 +75,16 @@
                         <li class="nav-item active"><a class="nav-link" href="">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="about-us">About</a></li>
                         <a:hasRole role="ADMIN">
-                            <li class="nav-item"><a class="nav-link" href="review">Review</a></li>
+                            <li class="nav-item submenu dropdown">
+                                <a href="admin" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" 
+                                   aria-haspopup="true" aria-expanded="false">Admin</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item"><a class="nav-link" href="admin?type=course">Courses</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="admin?type=user">Users</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="admin?type=notification">Notifications</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="admin?type=rating">Ratings</a></li>
+                                </ul>
+                            </li>
                         </a:hasRole>
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -83,6 +92,9 @@
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a class="nav-link" href="courses">Courses</a></li>
                                 <li class="nav-item"><a class="nav-link" href="courses?course_id=1">Course Details</a></li>
+                                <a:hasRole role="STUDENT,LECTURER">
+                                    <li class="nav-item"><a class="nav-link" href="rating">Ratings</a></li>
+                                </a:hasRole>
                             </ul>
                         </li>
                         <li class="nav-item submenu dropdown">

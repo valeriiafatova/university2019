@@ -16,7 +16,7 @@ public class DaoFactory {
     
     static {
         daoMap.put(DaoType.USER, new UserDao());
-        daoMap.put(DaoType.SUBJECT, new CourseDao());
+        daoMap.put(DaoType.COURSE, new CourseDao());
         daoMap.put(DaoType.MAJOR, new OutlineDao());
         daoMap.put(DaoType.RATING, new RatingDao());
     }

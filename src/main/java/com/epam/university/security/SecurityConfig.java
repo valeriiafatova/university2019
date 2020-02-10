@@ -1,7 +1,9 @@
 package com.epam.university.security;
 
+import com.epam.university.entity.User;
 import com.epam.university.enums.Role;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -28,6 +30,15 @@ public class SecurityConfig {
         return securityPages.getOrDefault(role, Collections.EMPTY_LIST)
                 .stream()
                 .anyMatch(securePage -> securePage.equals(page));
+    }
+    
+    public static boolean hasPermission(HttpServletRequest request, Role role){
+        User currentUser = getCurrentUser(request);
+        return currentUser != null && currentUser.getRole().equals(role);
+    }
+    
+    public static User getCurrentUser(HttpServletRequest request){
+        return (User) request.getSession().getAttribute("user");
     }
 
 }

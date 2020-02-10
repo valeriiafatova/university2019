@@ -10,6 +10,9 @@ public interface EntityDao<T> {
     List<T> getAll(boolean full);
     
     boolean create(T entity);
+    default boolean create(T entity, boolean full){
+        return false;
+    };
     
     boolean update(T entity);
     

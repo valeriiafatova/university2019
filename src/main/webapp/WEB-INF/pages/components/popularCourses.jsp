@@ -28,7 +28,7 @@
                         </div>
                         <div class="course_content">
                             <h4>
-                                <a href="../course-details.jsp">${course.title}</a>
+                                <a href="courses?course_id=${course.id}">${course.title}</a>
                             </h4>
                             <p>${course.description}</p>
                             <div class="course_meta d-flex justify-content-between">

@@ -13,14 +13,13 @@ public class AuthenticationTag extends TagSupport {
 
     @Override
     public int doStartTag() throws JspException {
-
         User user = getUser();
 
         if (role == null || user == null) {
             return SKIP_BODY;
         }
         Role userRole = user.getRole();
-        if (Objects.equals(userRole.toString(), role.toUpperCase())) {
+        if (role.contains(userRole.toString())) {
             return EVAL_BODY_INCLUDE;
         }
         return SKIP_BODY;

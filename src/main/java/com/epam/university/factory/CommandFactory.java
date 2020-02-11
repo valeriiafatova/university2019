@@ -13,6 +13,7 @@ import com.epam.university.web.command.pages.AboutUsCommand;
 import com.epam.university.web.command.pages.BlogCommand;
 import com.epam.university.web.command.pages.BlogDetail;
 import com.epam.university.web.command.pages.ContactCommand;
+import com.epam.university.web.command.pages.ForbiddenCommand;
 import com.epam.university.web.command.pages.HomeCommand;
 import com.epam.university.web.command.pages.NotFoundCommand;
 import com.epam.university.web.command.pages.SearchCommand;
@@ -27,7 +28,7 @@ public class CommandFactory {
 
     static {
         getCommandMap.put("/", new HomeCommand());
-        getCommandMap.put("/404", defaultCommand);
+        getCommandMap.put("/404-error", defaultCommand);
         getCommandMap.put("/courses", new CourseCommand());
         getCommandMap.put("/blog", new BlogCommand());
         getCommandMap.put("/single-blog", new BlogDetail());
@@ -41,11 +42,13 @@ public class CommandFactory {
         getCommandMap.put("/admin", new AdminCommand());
         getCommandMap.put("/notification", new NotificationCommand());
         getCommandMap.put("/rating", new RatingCommand());
+        getCommandMap.put("/403-error", new ForbiddenCommand());
         
         postCommandMap.put("/", new HomeCommand());
         postCommandMap.put("/login", new LoginCommand());
         postCommandMap.put("/registration", new RegistrationCommand());
         
+        postCommandMap.put("/courses", new CourseCommand());
         postCommandMap.put("/admin", new AdminCommand());
         postCommandMap.put("/notification", new NotificationCommand());
         postCommandMap.put("/rating", new RatingCommand());

@@ -1,12 +1,6 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Valeriia_Fatova
-  Date: 11/14/2019
-  Time: 5:14 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="a" uri="/WEB-INF/tags/auth.tld" %>
 <html>
 <head>
     <title>Title</title>
@@ -80,12 +74,27 @@
                     <ul class="nav navbar-nav menu_nav ml-auto">
                         <li class="nav-item active"><a class="nav-link" href="">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="about-us">About</a></li>
+                        <a:hasRole role="ADMIN">
+                            <li class="nav-item submenu dropdown">
+                                <a href="admin" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" 
+                                   aria-haspopup="true" aria-expanded="false">Admin</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item"><a class="nav-link" href="admin?type=course">Courses</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="admin?type=user">Users</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="admin?type=notification">Notifications</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="admin?type=rating">Ratings</a></li>
+                                </ul>
+                            </li>
+                        </a:hasRole>
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                aria-expanded="false">Pages</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a class="nav-link" href="courses">Courses</a></li>
                                 <li class="nav-item"><a class="nav-link" href="courses?course_id=1">Course Details</a></li>
+                                <a:hasRole role="STUDENT,LECTURER">
+                                    <li class="nav-item"><a class="nav-link" href="rating">Ratings</a></li>
+                                </a:hasRole>
                             </ul>
                         </li>
                         <li class="nav-item submenu dropdown">

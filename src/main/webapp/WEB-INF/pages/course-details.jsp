@@ -20,14 +20,14 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <div class="banner_content text-center">
-                            <h2>Courses</h2>
-                            <p>In the history of modern astronomy, there is probably no one greater leap forward than
-                                the
-                                building and launch of the space telescope known as the Hubble.</p>
+                            <h2>${course.title}</h2>
+                            <p>${course.description}</p>
+                            <p>${error}</p>
+                            <p>${result}</p>
                             <div class="page_link">
                                 <a href="">Home</a>
                                 <a href="courses">Courses</a>
-                                <a href="courses?course_id=1">Details</a>
+                                <a href="courses?course_id=${course.id}">Details</a>
                             </div>
                         </div>
                     </div>
@@ -143,7 +143,7 @@
                         <li>
                             <a class="justify-content-between d-flex" href="#">
                                 <p>Trainer’s Name</p>
-                                <span class="or">George Mathews</span>
+                                <span class="or">${course.lecturer.name}</span>
                             </a>
                         </li>
                         <li>
@@ -165,7 +165,13 @@
                             </a>
                         </li>
                     </ul>
-                    <a href="#" class="primary-btn text-uppercase enroll">Enroll the course</a>
+                    <c:if test="${canEnroll}">
+                        <form class="enrollCourse" name="enrollCourse" action="courses" method="post">
+                            <input type="hidden" name="course_id" value="${course.id}">
+                            <input type="hidden" name="type" value="enroll">
+                            <button class="primary-btn text-uppercase enroll" type="submit">Enroll the course</button>
+                        </form>
+                    </c:if>
 
                     <h4 class="title">Reviews</h4>
                     <div class="content">

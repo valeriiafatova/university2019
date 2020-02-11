@@ -1,8 +1,11 @@
 package com.epam.university.dao;
 
 import com.epam.university.entity.Course;
+import com.epam.university.persistance.TransactionManager;
+import com.epam.university.persistance.TransactionManagerWrapper;
 import org.apache.log4j.Logger;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class CourseDao extends AbstractDao<Course> {
@@ -66,6 +69,21 @@ public class CourseDao extends AbstractDao<Course> {
         return createUpdate(DELETE_COURSE, ps -> ps.setInt(1, entity.getId()));
     }
 
+    public boolean updateAll(List<Course> courses){
+        try {
+            TransactionManagerWrapper.startTransaction();
+            for(Course course :courses) {
+                update(course);
+            }
+            TransactionManagerWrapper.commit();
+            return true;
+        } catch (SQLException e) {
+            TransactionManagerWrapper.rollback();
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
     private EntityMapper<Course> getFullMapper() {
         return resultSet -> new Course(resultSet.getInt(COLUMN_ID), resultSet.getString(COLUMN_TITLE),
                 resultSet.getString(COLUMN_DESCRIPTION), resultSet.getInt(COLUMN_LECTURER_ID));

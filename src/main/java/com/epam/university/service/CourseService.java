@@ -8,8 +8,11 @@ import com.epam.university.entity.Rating;
 import com.epam.university.entity.User;
 import com.epam.university.enums.DaoType;
 import com.epam.university.factory.DaoFactory;
+import com.epam.university.persistance.TransactionManager;
+import com.epam.university.persistance.TransactionManagerWrapper;
 import com.sun.xml.internal.rngom.digested.DGrammarPattern;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -34,6 +37,22 @@ public class CourseService {
     public Optional<CourseDTO> getById(int id) {
         Course course = courseDao.getById(id, true);
         return course != null ? Optional.of(mapCourseDTO(course)) : Optional.empty();
+    }
+    
+    public void updateInTransaction(){
+        try {
+            TransactionManagerWrapper.startTransaction();
+            userDao.create(new User());
+            ratingDao.create(new Rating());
+            TransactionManagerWrapper.commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            try {
+                TransactionManagerWrapper.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
     private CourseDTO mapCourseDTO(Course course) {

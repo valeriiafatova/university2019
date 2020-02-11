@@ -1,6 +1,8 @@
 package com.epam.university.dao;
 
+import com.epam.university.persistance.ConnectionWrapper;
 import com.epam.university.persistance.DataSourceConnectionPool;
+import com.epam.university.persistance.TransactionManagerWrapper;
 import org.apache.log4j.Logger;
 
 import java.sql.PreparedStatement;
@@ -27,7 +29,8 @@ public abstract class AbstractDao<T> implements EntityDao<T> {
     public T getById(String query, StatementMapper<T> statementMapper, EntityMapper<T> mapper){
        T result = null;
 
-        try (PreparedStatement preparedStatement = DataSourceConnectionPool.getPreparedStatement(query);) {
+        try (ConnectionWrapper connectionWrapper = TransactionManagerWrapper.getConnection();
+             PreparedStatement preparedStatement = connectionWrapper.prepareStatement(query)) {
             statementMapper.map(preparedStatement);
             try(ResultSet resultSet = preparedStatement.executeQuery()) {
                 while (resultSet.next()) {
@@ -44,7 +47,8 @@ public abstract class AbstractDao<T> implements EntityDao<T> {
     public List<T> getAll(String query, EntityMapper<T> mapper) {
         List<T> result = new ArrayList<>();
 
-        try (PreparedStatement preparedStatement = DataSourceConnectionPool.getPreparedStatement(query);
+        try (ConnectionWrapper connectionWrapper = TransactionManagerWrapper.getConnection();
+             PreparedStatement preparedStatement = connectionWrapper.prepareStatement(query);
              ResultSet resultSet = preparedStatement.executeQuery()) {
 
             while (resultSet.next()) {
@@ -61,7 +65,8 @@ public abstract class AbstractDao<T> implements EntityDao<T> {
     }
     
     public boolean createUpdate(String query, StatementMapper<T> statementMapper){
-        try(PreparedStatement preparedStatement = DataSourceConnectionPool.getPreparedStatement(query);) {
+        try (ConnectionWrapper connectionWrapper = TransactionManagerWrapper.getConnection();
+             PreparedStatement preparedStatement = connectionWrapper.prepareStatement(query)) {
             statementMapper.map(preparedStatement);
 
             int result = preparedStatement.executeUpdate();
